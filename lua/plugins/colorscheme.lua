@@ -16,5 +16,6 @@ local darcula_dark = { "xiantang/darcula-dark.nvim" } -- https://github.com/xian
 local darcula = { "doums/darcula" } -- https://github.com/doums/darcula
 local bamboo = { "ribru17/bamboo.nvim" } -- https://github.com/ribru17/bamboo.nvim
 local nordic = { "AlexvZyl/nordic.nvim" } -- https://github.com/AlexvZyl/nordic.nvim
+local habamax = { "ntk148v/habamax.nvim", dependencies={ "rktjmp/lush.nvim" } } -- https://github.com/ntk148v/habamax.nvim
 
-return ayu
+return habamax

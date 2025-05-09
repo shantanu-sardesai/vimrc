@@ -1,9 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/nvim-cmp',
-    'PaterJason/cmp-conjure',
     {
       "folke/lazydev.nvim", -- let's the lua LSP see the vim related bindings.
       ft = "lua", -- only load on lua files
