@@ -18,5 +18,6 @@ return {
     
     lspconf.lua_ls.setup({})
     lspconf.clojure_lsp.setup({})
+    lspconf.clangd.setup({})
 	end,
 }
