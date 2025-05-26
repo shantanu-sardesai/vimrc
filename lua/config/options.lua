@@ -30,6 +30,6 @@ vim.opt.scrolloff = 8 -- keep atleast 8 lines in the bottom (unless the end of f
 
 vim.opt.updatetime = 50 -- supposed to help with performance due to how many plugins rely on events pertaining to this flag.
 
-vim.opt.colorcolumn = "80" -- column to measure line width.
+vim.opt.colorcolumn = "120" -- column to measure line width.
 
 vim.g.lazyvim_check_order = false -- disable since I'm using lazyvim only as a package manager.

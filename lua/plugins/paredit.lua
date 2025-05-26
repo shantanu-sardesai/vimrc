@@ -1,12 +1,7 @@
 return {
-	"julienvincent/nvim-paredit",
-	config = function()
-		local paredit = require("nvim-paredit")
-
-		paredit.setup({
-			indent = {
-				enabled = true,
-			},
-		})
-	end,
+  "julienvincent/nvim-paredit",
+	lazy = false,
+  config = function()
+    require("nvim-paredit").setup()
+  end
 }
