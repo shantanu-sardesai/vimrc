@@ -23,6 +23,10 @@ return {
       })
     end, { desc = "Telescope buffers" })
 		map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-    map("n", "<leader>fo", builtin.oldfiles, { desc = "Telescope old files" })
+    map("n", "<leader>fo", function()
+      builtin.oldfiles({
+        only_cwd = true,
+      })
+    end, { desc = "Telescope old files" })
 	end,
 }
