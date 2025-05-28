@@ -10,10 +10,19 @@ return {
 		local map = vim.keymap.set
 		local builtin = require("telescope.builtin")
 
+    -- builtin config option documentation:
+    --  https://github.com/nvim-telescope/telescope.nvim/blob/master/doc/telescope.txt
 		map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 		map("n", "<leader>Fg", builtin.git_files, { desc = "Telescope find git tracked files" })
 		map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-		map("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
+		map("n", "<leader>fb", function()
+      builtin.buffers({
+        sort_mru = true,
+        ignore_current_buffer = true,
+        only_cwd = true,
+      })
+    end, { desc = "Telescope buffers" })
 		map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+    map("n", "<leader>fo", builtin.oldfiles, { desc = "Telescope old files" })
 	end,
 }
