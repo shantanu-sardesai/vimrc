@@ -19,6 +19,6 @@ return {
     lspconf.lua_ls.setup({})
     lspconf.clojure_lsp.setup({})
     lspconf.clangd.setup({})
-    -- lspconf.ts_ls.setup({}) -- typescript language server.
+    lspconf.ts_ls.setup({}) -- typescript language server.
 	end,
 }

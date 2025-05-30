@@ -2,6 +2,7 @@
   "baleia.nvim": { "branch": "main", "commit": "880e97c02edf3148ba2bdc6305ac03eb3c3711e0" },
   "blink.cmp": { "branch": "main", "commit": "022521a8910a5543b0251b21c9e1a1e989745796" },
   "conjure": { "branch": "main", "commit": "9fec2bd817e2ce9a24b07016141b213cc16befdc" },
+  "context.vim": { "branch": "master", "commit": "82eb26de265292808917b82f3eda2725b53d785c" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "habamax.nvim": { "branch": "master", "commit": "4a4105aea429fca3cb5ebcca584e21b9af2ae265" },
   "hardtime.nvim": { "branch": "main", "commit": "1a3648a53002c2911ccb88e9c9f876cdc6c43ad6" },
