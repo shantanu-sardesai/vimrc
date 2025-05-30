@@ -6,7 +6,7 @@ vim.g.maplocalleader = "\\"
 
 -- -- lazy vim sets these by default.
 vim.opt.nu = true
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 
 -- -- lazy vim by default keeps it to 2, for the moment I like it.
 vim.opt.tabstop = 2
