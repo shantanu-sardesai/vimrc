@@ -1,9 +1,9 @@
 return {
-  {
-    "sbdchd/neoformat",
-    ft = { "c", "cpp" },
-    config = function()
-      vim.cmd([[
+	{
+		"sbdchd/neoformat",
+		ft = { "c", "cpp" },
+		config = function()
+			vim.cmd([[
         let g:neoformat_enabled_cpp = ['clangformat']
         let g:neoformat_enabled_c = ['clangformat']
         let g:neoformat_only_msg_on_error = 1
@@ -21,6 +21,6 @@ return {
 
         command NeoformatDisable execute 'let g:neoformat_enabled_cpp = []'
       ]])
-    end
-  },
+		end,
+	},
 }
