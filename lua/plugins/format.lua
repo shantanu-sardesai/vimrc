@@ -13,6 +13,7 @@ return {
             \ 'args': ['-assume-filename=' . expand('"%"')],
             \ 'stdin': 1,
             \ }
+
         augroup fmt
           autocmd!
           autocmd BufWritePre * undojoin | Neoformat

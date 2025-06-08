@@ -74,7 +74,7 @@ return {
           };
         }
       })
-			lspconf.ts_ls.setup({}) -- typescript language server.
+			lspconf.ts_ls.setup({})
 		end,
 	},
   {
