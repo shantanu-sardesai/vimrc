@@ -138,7 +138,8 @@ return {
     },
     opts_extend = { "sources.default" }
   },
-	{
+	{ -- provides gutters at the top (including information of the current namepsace, function body, etc.).
+    -- todo at the moment only works well with C++.
 		"wellle/context.vim",
 	},
 	{

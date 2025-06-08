@@ -1,6 +1,5 @@
--- https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file
 return {
-	{
+	{ -- https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
 		dependencies = {
@@ -31,7 +30,7 @@ return {
 			end, { desc = "Telescope old files" })
 		end,
 	},
-	{
+	{ -- plugin for file explorer.
 		"folke/snacks.nvim",
 		---@type snacks.Config
 		opts = {

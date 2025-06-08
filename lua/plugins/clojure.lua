@@ -1,10 +1,12 @@
 return {
-	{
+	{ -- Matches brackets.
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
 	},
-	{
+	{ -- Colorizes the REPL buffer.
+    -- not configured to work with Conjure properly, configuration docs:
+    --   https://github.com/m00qek/baleia.nvim?tab=readme-ov-file#with-conjure
 		"m00qek/baleia.nvim",
 		version = "*",
 		config = function()
@@ -19,8 +21,8 @@ return {
 			vim.api.nvim_create_user_command("BaleiaLogs", vim.g.baleia.logger.show, { bang = true })
 		end,
 	},
-	{ "Olical/conjure" },
-	{
+	{ "Olical/conjure" }, -- Primary Clojure plugin.
+	{ -- Plugin for enabling structural editing.
 		"julienvincent/nvim-paredit",
 		lazy = false,
 		config = function()
