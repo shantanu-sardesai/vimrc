@@ -57,7 +57,7 @@ return {
       nvim_map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
       nvim_map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
-      local on_attach = function(_client, bufnr)
+      local on_attach = function(_, bufnr)
         nvim_buf_map(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
         nvim_buf_map(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
         nvim_buf_map(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
@@ -74,7 +74,7 @@ return {
         cmd = { -- https://github.com/clangd/vscode-clangd/issues/425#issuecomment-1353854236
           "clangd",
           "--header-insertion=never",
-          "--query-driver=/opt/homebrew/opt/llvm@19/bin/clang",
+          "--query-driver=/opt/homebrew/opt/llvm@20/bin/clang",
           "--all-scopes-completion",
           "--completion-style=detailed",
         },
