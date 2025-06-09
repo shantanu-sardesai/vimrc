@@ -63,6 +63,13 @@ return {
 			lspconf.lua_ls.setup({})
 			lspconf.clojure_lsp.setup({})
       lspconf.clangd.setup({
+        cmd = { -- https://github.com/clangd/vscode-clangd/issues/425#issuecomment-1353854236
+          "clangd",
+          "--header-insertion=never",
+          "--query-driver=/opt/homebrew/opt/llvm@19/bin/clang",
+          "--all-scopes-completion",
+          "--completion-style=detailed",
+        },
         on_attach = on_attach,
         init_options = {
           compilationDatabaseDirectory = "build";
