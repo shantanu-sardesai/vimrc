@@ -163,4 +163,7 @@ return {
 	{
 		"HiPhish/rainbow-delimiters.nvim",
 	},
+  { -- configuration for the Java language server.
+    "mfussenegger/nvim-jdtls",
+  },
 }
