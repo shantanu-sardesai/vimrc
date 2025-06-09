@@ -17,6 +17,7 @@ return {
 			"markdown_inline",
 			-- custom.
 			"clojure",
+      "java",
 		},
 		sync_install = false,
 		auto_install = false,

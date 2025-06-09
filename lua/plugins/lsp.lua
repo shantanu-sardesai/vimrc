@@ -38,7 +38,15 @@ return {
 				clangd = {
 					mason = false,
 				},
+        jdtls = {
+          mason = false,
+        },
 			},
+      setup = {
+        jdtls = function()
+          return true -- avoid duplicate servers
+        end,
+      },
 		},
 		config = function()
       local nvim_map = vim.api.nvim_set_keymap
@@ -82,6 +90,9 @@ return {
         }
       })
 			lspconf.ts_ls.setup({})
+      lspconf.jdtls.setup({
+        on_attach = on_attach,
+      })
 		end,
 	},
   {
