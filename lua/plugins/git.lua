@@ -4,6 +4,9 @@ return {
 		local map = vim.keymap.set
 
 		map("n", "<leader>gs", vim.cmd.Git)
+		map("n", "<leader>gb", function()
+			vim.cmd.Git("blame")
+		end)
 		map("n", "gu", "<cmd>diffget //2<CR>")
 		map("n", "gh", "<cmd>diffget //3<CR>")
 
