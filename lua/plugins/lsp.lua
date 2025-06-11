@@ -159,6 +159,7 @@ return {
 	{ -- provides gutters at the top (including information of the current namepsace, function body, etc.).
 		-- todo at the moment only works well with C++.
 		"wellle/context.vim",
+		enabled = false, -- fixme takes way too much time to refresh, for now disabling.
 	},
 	{
 		"HiPhish/rainbow-delimiters.nvim",
