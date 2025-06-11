@@ -5,8 +5,8 @@ return {
 		config = true,
 	},
 	{ -- Colorizes the REPL buffer.
-    -- not configured to work with Conjure properly, configuration docs:
-    --   https://github.com/m00qek/baleia.nvim?tab=readme-ov-file#with-conjure
+		-- not configured to work with Conjure properly, configuration docs:
+		--   https://github.com/m00qek/baleia.nvim?tab=readme-ov-file#with-conjure
 		"m00qek/baleia.nvim",
 		version = "*",
 		config = function()
