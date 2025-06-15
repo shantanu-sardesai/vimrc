@@ -9,6 +9,7 @@ return {
 		config = function()
 			local map = vim.keymap.set
 			local builtin = require("telescope.builtin")
+			local actions = require("telescope.actions")
 
 			-- builtin config option documentation:
 			--  https://github.com/nvim-telescope/telescope.nvim/blob/master/doc/telescope.txt
@@ -28,6 +29,17 @@ return {
 					only_cwd = true,
 				})
 			end, { desc = "Telescope old files" })
+			map("n", "<leader>fs", function()
+				builtin.lsp_document_symbols({
+					desc = "Telescope list all symbols in the current document",
+				})
+			end)
+			map("n", "<leader>gd", function()
+				builtin.diagnostics({})
+			end)
+			map("n", "<leader>gr", function()
+				builtin.lsp_references({})
+			end)
 		end,
 	},
 	{ -- plugin for file explorer.

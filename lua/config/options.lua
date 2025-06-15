@@ -33,3 +33,8 @@ vim.opt.updatetime = 50 -- supposed to help with performance due to how many plu
 vim.opt.colorcolumn = "120" -- column to measure line width.
 
 vim.g.lazyvim_check_order = false -- disable since I'm using lazyvim only as a package manager.
+
+vim.cmd([[
+  " highlight the cursor line.
+  set cursorline
+]])
