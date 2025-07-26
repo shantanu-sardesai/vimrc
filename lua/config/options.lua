@@ -37,6 +37,9 @@ vim.g.lazyvim_check_order = false -- disable since I'm using lazyvim only as a p
 -- merge vim and system clipboards.
 vim.opt.clipboard = "unnamedplus" -- I tried avoiding doing this, but at this point I've given up hope.
 
+-- TODO: Improve search.
+-- TODO: Tabs and buffer management.
+
 vim.cmd([[
   " highlight the cursor line.
   set cursorline
