@@ -22,9 +22,10 @@ map("n", "N", "Nzzzv")
 -- preserves the previously copied value, watch the theprimeagen video on LSP setup for more context.
 map("x", "<leader>p", [["_dP]])
 
--- copy to system clipboard.
-map({ "n", "v" }, "<leader>y", [["+y]])
-map("n", "<leader>Y", [["+Y]])
+-- disable since I no longer use the vim clipboard.
+-- -- copy to system clipboard.
+-- map({ "n", "v" }, "<leader>y", [["+y]])
+-- map("n", "<leader>Y", [["+Y]])
 
 -- delete related keybinding for void register.
 map({ "n", "v" }, "<leader>d", '"_d')

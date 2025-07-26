@@ -34,6 +34,9 @@ vim.opt.colorcolumn = "120" -- column to measure line width.
 
 vim.g.lazyvim_check_order = false -- disable since I'm using lazyvim only as a package manager.
 
+-- merge vim and system clipboards.
+vim.opt.clipboard = "unnamedplus" -- I tried avoiding doing this, but at this point I've given up hope.
+
 vim.cmd([[
   " highlight the cursor line.
   set cursorline
