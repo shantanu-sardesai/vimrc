@@ -13,6 +13,7 @@ return {
 
 			-- builtin config option documentation:
 			--  https://github.com/nvim-telescope/telescope.nvim/blob/master/doc/telescope.txt
+			-- TODO: Fix search everywhere for dot files.
 			map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 			map("n", "<leader>Fg", builtin.git_files, { desc = "Telescope find git tracked files" })
 			map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })

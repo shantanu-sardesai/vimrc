@@ -10,8 +10,8 @@ local github = {
 	"projekt0n/github-nvim-theme",
 	name = "github-theme",
 	config = function()
-    -- TODO: Improve theme line highlight. When the vim line highlight option is on the theme uses a terible background
-    --       and foreground colors. Same for `darcula`.
+		-- TODO: Improve theme line highlight. When the vim line highlight option is on the theme uses a terible background
+		--       and foreground colors. Same for `darcula`.
 		require("github-theme").setup()
 
 		-- set_theme("github_dark_dimmed")
