@@ -5,7 +5,13 @@
 
 local set_theme = vim.cmd.colorscheme
 
-local gruvbox = { "ellisonleao/gruvbox.nvim" }
+local gruvbox = {
+	"ellisonleao/gruvbox.nvim",
+	config = function()
+		vim.opt.scrolloff = 0
+		set_theme("gruvbox")
+	end,
+}
 local github = {
 	"projekt0n/github-nvim-theme",
 	name = "github-theme",
@@ -60,4 +66,4 @@ local habamax = {
 	end,
 } -- https://github.com/ntk148v/habamax.nvim
 
-return darcula
+return gruvbox

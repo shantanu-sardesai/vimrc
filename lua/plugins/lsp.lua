@@ -89,10 +89,11 @@ return {
 					},
 				},
 			})
-			lspconf.ts_ls.setup({})
 			lspconf.jdtls.setup({
 				on_attach = on_attach,
 			})
+			lspconf.ts_ls.setup({})
+			lspconf.emmet_ls.setup({})
 		end,
 	},
 	{
