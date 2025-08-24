@@ -35,5 +35,15 @@ return {
 			sync_install = true,
 			auto_install = true,
 		},
+		-- TODO: Enable support for incremental selection.
+		incremental_selection = {
+			enable = true,
+			keymaps = {
+				init_selection = "<leader>s",
+				node_incremental = "<leader>s",
+				scope_incremental = "<nop>",
+				node_decremental = "<bs>",
+			},
+		},
 	},
 }
