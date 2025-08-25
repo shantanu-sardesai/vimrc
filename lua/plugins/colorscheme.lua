@@ -65,5 +65,6 @@ local habamax = {
 		set_theme("habamax.nvim")
 	end,
 } -- https://github.com/ntk148v/habamax.nvim
+local oxocarbon = { "nyoom-engineering/oxocarbon.nvim" } -- https://github.com/nyoom-engineering/oxocarbon.nvim
 
 return gruvbox
