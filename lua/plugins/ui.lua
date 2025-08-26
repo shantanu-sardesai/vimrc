@@ -109,6 +109,7 @@ return {
 		end,
 	},
 	-- active indent guide and indent text objects
+	-- alternatives: https://github.com/lukas-reineke/indent-blankline.nvim
 	{
 		"echasnovski/mini.indentscope",
 		version = false, -- wait till new 0.7.0 release to put it back on semver
@@ -132,4 +133,12 @@ return {
 	},
 	-- icons
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
+	{ -- tiny visual clues for the operations performed.
+		"rachartier/tiny-glimmer.nvim",
+		event = "VeryLazy",
+		priority = 10, -- Needs to be a really low priority, to catch others plugins keybindings.
+		opts = {
+			-- your configuration
+		},
+	},
 }

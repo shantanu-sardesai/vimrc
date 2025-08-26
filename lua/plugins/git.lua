@@ -1,3 +1,5 @@
+-- a better diff viewer: https://github.com/sindrets/diffview.nvim
+
 return {
 	"tpope/vim-fugitive",
 	config = function()
