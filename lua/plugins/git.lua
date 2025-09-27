@@ -37,4 +37,13 @@ return {
 		end,
 	},
 	{ "sindrets/diffview.nvim" },
+	-- a plugin to easily generate permalinks.
+	{
+		"ruifm/gitlinker.nvim",
+		config = function()
+			local plugin = require("gitlinker")
+
+			plugin.setup()
+		end,
+	},
 }

@@ -6,6 +6,7 @@
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "follow-md-links.nvim": { "branch": "main", "commit": "ce8735a15dc3e5fc5bb052ec51b849c03e57df53" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
+  "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gruvbox.nvim": { "branch": "main", "commit": "00e38a379bab3389e187b3953566d67d494dfddd" },
   "hardtime.nvim": { "branch": "main", "commit": "1a3648a53002c2911ccb88e9c9f876cdc6c43ad6" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
