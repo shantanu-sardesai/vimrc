@@ -1,3 +1,5 @@
+local util = require("config.utils")
+
 return {
 	{ -- https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file
 		"nvim-telescope/telescope.nvim",
@@ -14,8 +16,12 @@ return {
 			-- builtin config option documentation:
 			--  https://github.com/nvim-telescope/telescope.nvim/blob/master/doc/telescope.txt
 			-- TODO: Fix search everywhere for dot files.
-			map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-			map("n", "<leader>Fg", builtin.git_files, { desc = "Telescope find git tracked files" })
+			map("n", "<leader>ff", util.telescope("files"), { desc = "Telescope find files" })
+			map("n", "<leader>Fg", function()
+				builtin.git_files({
+					show_untracked = true,
+				})
+			end, { desc = "Telescope find git tracked files" })
 			map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 			map("n", "<leader>fb", function()
 				builtin.buffers({
