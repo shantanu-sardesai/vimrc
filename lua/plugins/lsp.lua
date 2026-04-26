@@ -41,6 +41,15 @@ return {
 				jdtls = {
 					mason = false,
 				},
+				vtsls = {
+					mason = false,
+				},
+				clojure_lsp = {
+					mason = false,
+				},
+				emmet_ls = {
+					mason = false,
+				},
 			},
 			setup = {
 				jdtls = function()
@@ -51,6 +60,7 @@ return {
 		config = function()
 			local nvim_map = vim.api.nvim_set_keymap
 			local nvim_buf_map = vim.api.nvim_buf_set_keymap
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local opts = { noremap = true, silent = true }
 
 			nvim_map("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -68,16 +78,23 @@ return {
 			end
 			local lspconf = require("lspconfig")
 
-			lspconf.lua_ls.setup({})
-			lspconf.clojure_lsp.setup({})
+			lspconf.lua_ls.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+			lspconf.clojure_lsp.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
 			lspconf.clangd.setup({
-				cmd = { -- https://github.com/clangd/vscode-clangd/issues/425#issuecomment-1353854236
+				cmd = {
 					"clangd",
+					"--clang-tidy",
+					"--background-index",
 					"--header-insertion=never",
-					"--query-driver=/opt/homebrew/opt/llvm@20/bin/clang",
-					"--all-scopes-completion",
-					"--completion-style=detailed",
+					"--log=error",
 				},
+				capabilities = capabilities,
 				on_attach = on_attach,
 				init_options = {
 					compilationDatabaseDirectory = "build",
@@ -91,9 +108,31 @@ return {
 			})
 			lspconf.jdtls.setup({
 				on_attach = on_attach,
+				capabilities = capabilities,
 			})
-			lspconf.ts_ls.setup({})
-			lspconf.emmet_ls.setup({})
+			lspconf.vtsls.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+			lspconf.emmet_ls.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+				filetypes = {
+					"css",
+					"eruby",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"sass",
+					"scss",
+					"svelte",
+					"pug",
+					"typescriptreact",
+					"vue",
+				},
+				init_options = {},
+			})
 		end,
 	},
 	{
