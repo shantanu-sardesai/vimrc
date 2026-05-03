@@ -15,78 +15,47 @@ return {
 				},
 			},
 		},
-		opts = {
-			diagnositics = {
+		config = function()
+			-- Apply diagnostic display options (nvim 0.11+: via vim.diagnostic.config)
+			vim.diagnostic.config({
 				underline = true,
 				update_in_insert = false,
 				virtual_text = { spacing = 2, prefix = "●" },
 				severity_sort = true,
-			},
-			-- Automatically format on save
-			autoformat = true,
-			-- options for vim.lsp.buf.format
-			-- `bufnr` and `filter` is handled by the LazyVim formatter,
-			-- but can be also overridden when specified
-			format = {
-				formatting_options = nil,
-				timeout_ms = nil,
-			},
-			servers = {
-				lua_ls = {
-					mason = false,
-				},
-				clangd = {
-					mason = false,
-				},
-				jdtls = {
-					mason = false,
-				},
-				vtsls = {
-					mason = false,
-				},
-				clojure_lsp = {
-					mason = false,
-				},
-				emmet_ls = {
-					mason = false,
-				},
-			},
-			setup = {
-				jdtls = function()
-					return true -- avoid duplicate servers
-				end,
-			},
-		},
-		config = function()
-			local nvim_map = vim.api.nvim_set_keymap
-			local nvim_buf_map = vim.api.nvim_buf_set_keymap
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
+			})
+
+			-- Set capabilities globally for all servers (nvim 0.11+)
+			vim.lsp.config("*", {
+				capabilities = require("blink.cmp").get_lsp_capabilities(),
+			})
+
+			-- Global diagnostic keymaps
 			local opts = { noremap = true, silent = true }
+			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+			vim.keymap.set("n", "[d", function()
+				vim.diagnostic.jump({ count = -1 })
+			end, opts)
+			vim.keymap.set("n", "]d", function()
+				vim.diagnostic.jump({ count = 1 })
+			end, opts)
 
-			nvim_map("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-			nvim_map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-			nvim_map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-
-			local on_attach = function(_, bufnr)
-				nvim_buf_map(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-				nvim_buf_map(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-				nvim_buf_map(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-				nvim_buf_map(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-				nvim_buf_map(bufnr, "n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-				nvim_buf_map(bufnr, "n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-				nvim_buf_map(bufnr, "n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-			end
-			local lspconf = require("lspconfig")
-
-			lspconf.lua_ls.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
+			-- Per-buffer LSP keymaps via LspAttach autocmd (nvim 0.11+)
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspKeymaps", { clear = true }),
+				callback = function(ev)
+					local bufopts = { noremap = true, silent = true, buffer = ev.buf }
+					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+					vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+					vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+					vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
+					vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+					vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
+				end,
 			})
-			lspconf.clojure_lsp.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-			lspconf.clangd.setup({
+
+			-- Configure individual servers (nvim 0.11+: vim.lsp.config + vim.lsp.enable)
+			vim.lsp.config("clangd", {
 				cmd = {
 					"clangd",
 					"--clang-tidy",
@@ -94,8 +63,6 @@ return {
 					"--header-insertion=never",
 					"--log=error",
 				},
-				capabilities = capabilities,
-				on_attach = on_attach,
 				init_options = {
 					compilationDatabaseDirectory = "build",
 					index = {
@@ -106,17 +73,8 @@ return {
 					},
 				},
 			})
-			lspconf.jdtls.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-			lspconf.vtsls.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-			lspconf.emmet_ls.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
+
+			vim.lsp.config("emmet_ls", {
 				filetypes = {
 					"css",
 					"eruby",
@@ -133,6 +91,9 @@ return {
 				},
 				init_options = {},
 			})
+
+			-- Enable all servers (jdtls is handled by nvim-jdtls, skip it here)
+			vim.lsp.enable({ "lua_ls", "clangd", "vtsls", "clojure_lsp", "emmet_ls" })
 		end,
 	},
 	{
