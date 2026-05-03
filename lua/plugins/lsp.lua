@@ -92,8 +92,8 @@ return {
 				init_options = {},
 			})
 
-			-- Enable all servers (jdtls is handled by nvim-jdtls, skip it here)
-			vim.lsp.enable({ "lua_ls", "clangd", "vtsls", "clojure_lsp", "emmet_ls" })
+		-- Enable all servers (jdtls is handled by nvim-jdtls, skip it here)
+		vim.lsp.enable({ "lua_ls", "clangd", "vtsls", "clojure_lsp", "emmet_ls", "eslint" })
 		end,
 	},
 	{
