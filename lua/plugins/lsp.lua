@@ -92,8 +92,20 @@ return {
 				init_options = {},
 			})
 
-		-- Enable all servers (jdtls is handled by nvim-jdtls, skip it here)
-		vim.lsp.enable({ "lua_ls", "clangd", "vtsls", "clojure_lsp", "emmet_ls", "eslint" })
+			vim.lsp.config("roslyn", {
+				settings = {
+					["csharp|inlay_hints"] = {
+						csharp_enable_inlay_hints_for_implicit_object_creation = true,
+						csharp_enable_inlay_hints_for_implicit_variable_types = true,
+					},
+					["csharp|code_lens"] = {
+						dotnet_enable_references_code_lens = true,
+					},
+				},
+			})
+
+			-- Enable all servers (jdtls is handled by nvim-jdtls, skip it here)
+			vim.lsp.enable({ "lua_ls", "clangd", "vtsls", "clojure_lsp", "emmet_ls", "eslint", "roslyn" })
 		end,
 	},
 	{
