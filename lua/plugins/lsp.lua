@@ -104,8 +104,19 @@ return {
 				},
 			})
 
+			vim.lsp.config("gopls", {
+				settings = {
+					gopls = {
+						analyses = {
+							unusedparams = true,
+						},
+						staticcheck = true,
+					},
+				},
+			})
+
 			-- Enable all servers (jdtls is handled by nvim-jdtls, skip it here)
-			vim.lsp.enable({ "lua_ls", "clangd", "vtsls", "clojure_lsp", "emmet_ls", "eslint", "roslyn" })
+			vim.lsp.enable({ "lua_ls", "clangd", "vtsls", "clojure_lsp", "emmet_ls", "eslint", "roslyn", "gopls" })
 		end,
 	},
 	{
