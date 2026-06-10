@@ -33,6 +33,8 @@ return {
 				-- file formats.
 				"json",
 				"yaml",
+				-- zig.
+				"zig",
 			},
 			sync_install = true,
 			auto_install = true,

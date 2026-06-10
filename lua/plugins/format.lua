@@ -1,16 +1,23 @@
 return {
 	{
 		"sbdchd/neoformat",
-		ft = { "c", "cpp" },
+		ft = { "c", "cpp", "zig" },
 		config = function()
 			vim.cmd([[
         let g:neoformat_enabled_cpp = ['clangformat']
         let g:neoformat_enabled_c = ['clangformat']
+        let g:neoformat_enabled_zig = ['zigfmt']
         let g:neoformat_only_msg_on_error = 1
 
         let g:neoformat_cpp_clangformat = {
             \ 'exe': 'clang-format',
             \ 'args': ['-assume-filename=' . expand('"%"')],
+            \ 'stdin': 1,
+            \ }
+
+        let g:neoformat_zig_zigfmt = {
+            \ 'exe': 'zig',
+            \ 'args': ['fmt', '--stdin'],
             \ 'stdin': 1,
             \ }
 
