@@ -4,6 +4,7 @@ return {
 		version = false, -- last release is way too old and doesn't work on Windows
 		build = ":TSUpdate",
 		lazy = false, -- load treesitter early when opening a file from the cmdline
+		main = "nvim-treesitter.configs",
 		opts = {
 			highlight = { enable = true },
 			indent = { enable = true },
@@ -22,6 +23,7 @@ return {
 				"cpp",
 				"clojure",
 				"java",
+				"go",
 				-- web.
 				"html",
 				"javascript",
@@ -34,15 +36,14 @@ return {
 			},
 			sync_install = true,
 			auto_install = true,
-		},
-		-- TODO: Enable support for incremental selection.
-		incremental_selection = {
-			enable = true,
-			keymaps = {
-				init_selection = "<leader>s",
-				node_incremental = "<leader>s",
-				scope_incremental = "<nop>",
-				node_decremental = "<bs>",
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "<leader>s",
+					node_incremental = "<leader>s",
+					scope_incremental = "<nop>",
+					node_decremental = "<bs>",
+				},
 			},
 		},
 	},
