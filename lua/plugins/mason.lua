@@ -10,15 +10,12 @@ return {
 				"github:Crashdummyy/mason-registry",
 				"github:mason-org/mason-registry",
 			},
+			-- roslyn is managed by seblyng/roslyn.nvim, not lspconfig, so install it here directly
+			ensure_installed = { "roslyn" },
 		},
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
 		dependencies = { "mason-org/mason.nvim" },
-		opts = {
-			-- Installation instructions for roslyn via Mason:
-			-- https://github.com/seblyng/roslyn.nvim?tab=readme-ov-file#-installation
-			ensure_installed = { "roslyn" },
-		},
 	},
 }
