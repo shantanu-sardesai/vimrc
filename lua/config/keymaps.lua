@@ -37,3 +37,6 @@ map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- replace the highlighted word.
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- clear search highlights.
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
